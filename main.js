@@ -2,7 +2,21 @@ const taskName = document.querySelector('input');
 const addTaskBtn = document.getElementById('addTask');
 const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
+const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 
+function updatePendingTasks(){
+
+    /*create a new paragraph element*/
+    const newPara = document.createElement('p');
+    newPara.innerHTML = `You have ${unorderedList.childElementCount} pending tasks`;
+
+    /*get the old paragraph element*/
+    const oldPara = document.getElementsByClassName('last-section-div')[0].firstElementChild;
+    
+    /*get the parent*/
+    const paraParent = oldPara.parentElement;
+    paraParent.replaceChild(newPara,oldPara);
+}
 
 function showListItem(toDo){
      /*create a new list item */
@@ -16,12 +30,13 @@ function showListItem(toDo){
 
 function addTask(e){
     if(taskName.value === ""){
+        showError.style.display = 'none';
         taskName.style.border = '1.5px solid red';
         showError.textContent = "please enter your task";
         showError.style.color = 'red';
     } else{
         showError.style.display = 'none';
-        
+
         /*get the task value*/
         let taskValue = taskName.value;
 
@@ -38,6 +53,7 @@ function addTask(e){
         localStorage.setItem('taskValue', JSON.stringify(tasks));
 
         showListItem(taskValue);
+        updatePendingTasks();
     }
     e.preventDefault();
 }
@@ -52,10 +68,10 @@ function updateEntireUI(){
     tasks.forEach(function(task){
         showListItem(task);
     });
-    
+    updatePendingTasks();
 }
 
-
+updatePendingTasks();
 
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
