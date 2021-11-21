@@ -47,6 +47,11 @@ body {
 .main-container .inside-main-container .list-items-div, 
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
 
+.main-container .inside-main-container .list-items-div{
+    height: 210px;
+    overflow-y: auto;
+}
+
 /*STYLE EACH LIST ITEM BLOCK IN THE UNORDERED LIST*/
 .main-container .inside-main-container .list-items-div .list-item{
     margin : 0.45rem;
