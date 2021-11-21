@@ -9,7 +9,10 @@
     --primaryColor : #fff;
 }
 
-body {background-color: var(--body-background-color);}
+body {
+    background-color: var(--body-background-color);
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 .main-container{
     background-color : var(--primaryColor);
@@ -17,22 +20,19 @@ body {background-color: var(--body-background-color);}
     position: absolute;
     top: 50%;
     left : 50%;
-    height : 350px;
     width: 350px;
     margin-top : -175px;
     margin-left : -175px;
 }
 
-.main-container h2 {margin: 1rem 0rem;}
-
-.main-container .inside-main-container {background-color: yellow;}
+.main-container h2 {margin: 0.8rem;}
 
 .main-container .inside-main-container .input-div input {width : 80%;}
 
 .main-container .inside-main-container .input-div a{
     text-decoration : none;
     color : white;
-    background-color : pink;
+    background-color : rgb(238, 49, 80);
     text-align: center;
     width : 14%;
     border-radius: 10%;
@@ -41,9 +41,40 @@ body {background-color: var(--body-background-color);}
 .main-container .inside-main-container .input-div{
     display: flex;
     justify-content: space-evenly;
-    padding : 0.5rem;
 }
 
 .main-container .inside-main-container .input-div input,a {padding : 0.35rem;}
 
-.main-container .inside-main-container ul {list-style: none;}
+.main-container .inside-main-container .list-items-div ul {list-style: none;}
+
+.main-container .inside-main-container .list-items-div, 
+.main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
+
+.main-container .inside-main-container .list-items-div li{
+    margin : 0.3rem;
+    padding : 0.6rem;
+    background-color : rgba(211, 211, 211, 0.836);
+    display: flex;
+}
+
+.main-container .last-section-div a{
+    text-decoration : none;
+    color : var(--primaryColor);
+    padding : 0.3rem;
+    background-color : rgb(170, 49, 170);
+}
+
+.main-container .last-section-div p{
+    display : inline-block;
+}
+
+.main-container .last-section-div{
+    display : flex;
+    justify-content: space-between;
+    margin-left: 0.5rem;
+    margin-right : 0.5rem;
+    margin-bottom : 0.8rem;
+    align-items: center;
+}
+
+
