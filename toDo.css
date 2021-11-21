@@ -5,12 +5,11 @@
 }
 
 :root{
-    --body-background-color : rgb(235, 12, 235);
     --primaryColor : #fff;
 }
 
 body {
-    background-color: var(--body-background-color);
+    background-color: orange;
     font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -50,12 +49,20 @@ body {
 .main-container .inside-main-container .list-items-div, 
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
 
-.main-container .inside-main-container .list-items-div li{
+.main-container .inside-main-container .list-items-div .list-item{
     margin : 0.3rem;
     padding : 0.6rem;
-    background-color : rgba(211, 211, 211, 0.836);
+    background-color: #c3c3c367;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.main-container .inside-main-container .list-items-div li {display: inline-block;}
+
+.main-container .inside-main-container .list-items-div i {color : red;}
+
+.main-container .inside-main-container .list-items-div i:hover {cursor : pointer;}
 
 .main-container .last-section-div a{
     text-decoration : none;

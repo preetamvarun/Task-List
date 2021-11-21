@@ -5,22 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./toDo.css">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4e89eb9914.js" crossorigin="anonymous"></script>
+    <title>Todo App</title>
 </head>
 <body>
     <div class="main-container">
         <h2>Todo App</h2>
         <div class="inside-main-container">
             <div class="input-div">
-                <input type="text" name="taskName" id="taskName">
+                <input type="text" name="taskName" id="taskName" spellcheck="true">
                 <a href="#" id="addTask"> <strong>+</strong> </a>
             </div>
             <div class="list-items-div">
                 <ul>
-                    <li>Watch Death Note</li>
-                    <li>Code in javascript</li>
-                    <li>Build To Do List</li>
-                    <li>Tweet about your work</li>
+                    <div class="list-item">
+                        <li>Watch Death Note</li>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="list-item">
+                        <li>Code in javascript</li>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="list-item">
+                        <li>Build To Do List</li>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="list-item">
+                        <li>Tweet about your work</li>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
                 </ul>
             </div>
         </div>
