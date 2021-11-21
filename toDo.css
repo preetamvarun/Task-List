@@ -9,9 +9,7 @@
     --primaryColor : #fff;
 }
 
-body{
-    background-color: var(--body-background-color);
-}
+body {background-color: var(--body-background-color);}
 
 .main-container{
     background-color : var(--primaryColor);
@@ -25,17 +23,11 @@ body{
     margin-left : -175px;
 }
 
-.main-container h2{
-    margin: 1rem 0rem;
-}
+.main-container h2 {margin: 1rem 0rem;}
 
-.main-container .inside-main-container{
-    background-color: yellow;
-}
+.main-container .inside-main-container {background-color: yellow;}
 
-.main-container .inside-main-container .input-div input{
-    width : 80%;
-}
+.main-container .inside-main-container .input-div input {width : 80%;}
 
 .main-container .inside-main-container .input-div a{
     text-decoration : none;
@@ -52,11 +44,6 @@ body{
     padding : 0.5rem;
 }
 
-.main-container .inside-main-container .input-div input,a{
-    padding : 0.35rem;
-}
+.main-container .inside-main-container .input-div input,a {padding : 0.35rem;}
 
-
-.main-container .inside-main-container ul{
-    list-style: none;
-}
+.main-container .inside-main-container ul {list-style: none;}
