@@ -12,12 +12,15 @@
     <div class="main-container">
         <h2>Todo App</h2>
         <div class="inside-main-container">
+
             <div class="input-div">
-                <input type="text" name="taskName" id="taskName" spellcheck="true">
+                <input type="text" name="taskName" id="taskName" spellcheck="true" required>
                 <a href="#" id="addTask"> <strong>+</strong> </a>
             </div>
-            <div class="list-items-div">
-                <ul>
+
+            <p id = "showError" style="margin-left: 1rem;"></p>
+
+                <ul class="list-items-div">
                     <div class="list-item">
                         <li>Watch Death Note</li>
                         <i class="fas fa-trash-alt hide"></i>
@@ -35,7 +38,7 @@
                         <i class="fas fa-trash-alt hide"></i>
                     </div>
                 </ul>
-            </div>
+
         </div>
         <div class="last-section-div">
             <p>You have 4 pending tasks</p> 
