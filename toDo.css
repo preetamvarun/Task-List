@@ -4,17 +4,14 @@
     box-sizing : border-box;
 }
 
-:root{
-    --primaryColor : #fff;
-}
-
 body {
     background-color: orange;
     font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* STYLING MAIN CONTAINER */
 .main-container{
-    background-color : var(--primaryColor);
+    background-color : white;
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -24,10 +21,13 @@ body {
     margin-left : -175px;
 }
 
+/* STYLING MAIN CONTAINER HEADING */
 .main-container h2 {margin: 0.8rem;}
 
+/*STYLE MAIN CONTAINER INPUT DIV*/
 .main-container .inside-main-container .input-div input {width : 80%;}
 
+/*STYLE MAIN CONTAINER INPUT DIV BUTTON*/
 .main-container .inside-main-container .input-div a{
     text-decoration : none;
     color : white;
@@ -36,21 +36,20 @@ body {
     width : 14%;
     border-radius: 10%;
 }
-
 .main-container .inside-main-container .input-div{
     display: flex;
     justify-content: space-evenly;
 }
-
 .main-container .inside-main-container .input-div input,a {padding : 0.35rem;}
 
+/*STYLE LIST ITEMS DIV*/
 .main-container .inside-main-container .list-items-div ul {list-style: none;}
-
 .main-container .inside-main-container .list-items-div, 
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
 
+/*STYLE EACH LIST ITEM BLOCK IN THE UNORDERED LIST*/
 .main-container .inside-main-container .list-items-div .list-item{
-    margin : 0.3rem;
+    margin : 0.45rem;
     padding : 0.6rem;
     background-color: #c3c3c367;
     display: flex;
@@ -58,23 +57,15 @@ body {
     justify-content: space-between;
 }
 
+/*STYLE EACH LIST ITEM IN LIST ITEM BLOCK*/
 .main-container .inside-main-container .list-items-div li {display: inline-block;}
 
-.main-container .inside-main-container .list-items-div i {color : red;}
+/*WORK WITH ICONS*/
+.main-container .inside-main-container .list-items-div .hide {color : red;}
+.main-container .inside-main-container .list-items-div .hide:hover {cursor : pointer;}
 
-.main-container .inside-main-container .list-items-div i:hover {cursor : pointer;}
 
-.main-container .last-section-div a{
-    text-decoration : none;
-    color : var(--primaryColor);
-    padding : 0.3rem;
-    background-color : rgb(170, 49, 170);
-}
-
-.main-container .last-section-div p{
-    display : inline-block;
-}
-
+/*STYLE LAST SECTION DIV*/
 .main-container .last-section-div{
     display : flex;
     justify-content: space-between;
@@ -83,5 +74,17 @@ body {
     margin-bottom : 0.8rem;
     align-items: center;
 }
+
+/*STYLE LAST SECTION BUTTON*/
+.main-container .last-section-div a{
+    text-decoration : none;
+    color : white;
+    padding : 0.3rem;
+    background-color : rgb(238, 49, 80);
+}
+
+/*STYLE LAST SECTION PARAGRAPH*/
+.main-container .last-section-div p{display : inline-block;}
+
 
 
