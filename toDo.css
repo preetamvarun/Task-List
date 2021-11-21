@@ -25,10 +25,38 @@ body{
     margin-left : -175px;
 }
 
-.main-container ul{
-    list-style: none;
+.main-container h2{
+    margin: 1rem 0rem;
 }
 
-/* #addTask{
-    font-size : 30px;
-} */
+.main-container .inside-main-container{
+    background-color: yellow;
+}
+
+.main-container .inside-main-container .input-div input{
+    width : 80%;
+}
+
+.main-container .inside-main-container .input-div a{
+    text-decoration : none;
+    color : white;
+    background-color : pink;
+    text-align: center;
+    width : 14%;
+    border-radius: 10%;
+}
+
+.main-container .inside-main-container .input-div{
+    display: flex;
+    justify-content: space-evenly;
+    padding : 0.5rem;
+}
+
+.main-container .inside-main-container .input-div input,a{
+    padding : 0.35rem;
+}
+
+
+.main-container .inside-main-container ul{
+    list-style: none;
+}
