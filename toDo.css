@@ -3,3 +3,32 @@
     padding : 0rem;
     box-sizing : border-box;
 }
+
+:root{
+    --body-background-color : rgb(235, 12, 235);
+    --primaryColor : #fff;
+}
+
+body{
+    background-color: var(--body-background-color);
+}
+
+.main-container{
+    background-color : var(--primaryColor);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left : 50%;
+    height : 350px;
+    width: 350px;
+    margin-top : -175px;
+    margin-left : -175px;
+}
+
+.main-container ul{
+    list-style: none;
+}
+
+/* #addTask{
+    font-size : 30px;
+} */
