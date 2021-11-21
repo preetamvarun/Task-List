@@ -5,7 +5,7 @@ const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 
 function updatePendingTasks(){
-
+    
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
     newPara.innerHTML = `You have ${unorderedList.childElementCount} pending tasks`;
@@ -16,6 +16,7 @@ function updatePendingTasks(){
     /*get the parent*/
     const paraParent = oldPara.parentElement;
     paraParent.replaceChild(newPara,oldPara);
+
 }
 
 function showListItem(toDo){
@@ -40,13 +41,13 @@ function clearAll(){
 
 function addTask(e){
     if(taskName.value === ""){
-        showError.style.display = 'none';
+        showError.style.display = 'block';
         taskName.style.border = '1.5px solid red';
         showError.textContent = "please enter your task";
         showError.style.color = 'red';
     } else{
         showError.style.display = 'none';
-
+        taskName.style.border = '1px solid black';
         /*get the task value*/
         let taskValue = taskName.value;
 
@@ -71,10 +72,8 @@ function addTask(e){
 /*UPDATE UI from local storage data*/
 function updateEntireUI(){
     let tasks;
-
     localStorage.getItem('taskValue') ===  null ? tasks = [] 
     : tasks = JSON.parse(localStorage.getItem('taskValue'));
-
     tasks.forEach(function(task){
         showListItem(task);
     });
@@ -82,7 +81,6 @@ function updateEntireUI(){
 }
 
 updatePendingTasks();
-
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);
