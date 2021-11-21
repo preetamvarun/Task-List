@@ -28,6 +28,16 @@ function showListItem(toDo){
      unorderedList.appendChild(newItemDiv);
 }
 
+function clearAll(){
+    let allTasks = document.getElementsByClassName('list-item');
+    allTasks = Array.from(allTasks);
+    allTasks.forEach(function(eachTask){
+        eachTask.remove();
+    });
+    updatePendingTasks();
+    localStorage.clear();
+}
+
 function addTask(e){
     if(taskName.value === ""){
         showError.style.display = 'none';
@@ -75,3 +85,4 @@ updatePendingTasks();
 
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
+clearBtn.addEventListener('click',clearAll);
