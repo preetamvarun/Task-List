@@ -58,12 +58,16 @@ body {
 }
 
 /*STYLE EACH LIST ITEM IN LIST ITEM BLOCK*/
-.main-container .inside-main-container .list-items-div li {display: inline-block;}
+.main-container .inside-main-container .list-items-div li {display: block;}
 
 /*WORK WITH ICONS*/
-.main-container .inside-main-container .list-items-div .hide {color : red;}
-.main-container .inside-main-container .list-items-div .hide:hover {cursor : pointer;}
-
+.main-container .inside-main-container .list-items-div .list-item .hide{
+    opacity: 0;
+}
+.main-container .inside-main-container .list-items-div .list-item .hide:hover{
+    opacity: 1;
+    color : red;
+}
 
 /*STYLE LAST SECTION DIV*/
 .main-container .last-section-div{
