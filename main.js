@@ -94,6 +94,8 @@ function removeSelectedItem(e){
         localStorage.setItem('taskValue',JSON.stringify(arr));
         // remove it from the ui as well
         e.target.parentElement.remove();
+        // update pending tasks as well
+        updatePendingTasks();
     }
     e.preventDefault();
 }
