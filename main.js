@@ -4,8 +4,8 @@ const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 
+
 function updatePendingTasks(){
-    
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
     newPara.innerHTML = `You have ${unorderedList.childElementCount} pending tasks`;
@@ -16,8 +16,8 @@ function updatePendingTasks(){
     /*get the parent*/
     const paraParent = oldPara.parentElement;
     paraParent.replaceChild(newPara,oldPara);
-
 }
+
 
 function showListItem(toDo){
      /*create a new list item */
@@ -80,7 +80,28 @@ function updateEntireUI(){
     updatePendingTasks();
 }
 
+/*Remove selected list item*/
+function removeSelectedItem(e){
+    let value, arr, index;
+    // if user clicks on the icon then clear list-item div
+    if(e.target.classList.contains('hide')){
+        value = e.target.parentElement.firstElementChild.textContent;
+        arr = JSON.parse(localStorage.getItem('taskValue'));
+        index = arr.indexOf(value);
+        // now remove the value from the local storage also
+        arr.splice(index,1);
+        // set the new array to taskValue
+        localStorage.setItem('taskValue',JSON.stringify(arr));
+        // remove it from the ui as well
+        e.target.parentElement.remove();
+    }
+    e.preventDefault();
+}
+
+
+
 updatePendingTasks();
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);
+unorderedList.addEventListener('click',removeSelectedItem);
