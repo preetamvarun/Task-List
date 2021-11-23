@@ -5,6 +5,7 @@ const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 
 
+
 function updatePendingTasks(){
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
@@ -18,13 +19,15 @@ function updatePendingTasks(){
     paraParent.replaceChild(newPara,oldPara);
 }
 
-
 function showListItem(toDo){
      /*create a new list item */
      const newItemDiv = document.createElement('div');
      newItemDiv.className = 'list-item';
-     newItemDiv.innerHTML = `<li>${toDo}</li> <i class="fas fa-trash-alt hide"></i>`;
-
+     newItemDiv.innerHTML = 
+     `<li class="item">${toDo}</li> 
+        <i class="fas fa-pen-square edit"></i>
+        <i class="fas fa-trash-alt hide"></i>
+     </div>`;
      /*Now updating the UI (append it to the parent element)*/
      unorderedList.appendChild(newItemDiv);
 }
@@ -40,6 +43,7 @@ function clearAll(){
 }
 
 function addTask(e){
+    console.log('entered into function');
     if(taskName.value === ""){
         showError.style.display = 'block';
         taskName.style.border = '1.5px solid red';
@@ -71,6 +75,7 @@ function addTask(e){
 
 /*UPDATE UI from local storage data*/
 function updateEntireUI(){
+    updatePendingTasks();
     let tasks;
     localStorage.getItem('taskValue') ===  null ? tasks = [] 
     : tasks = JSON.parse(localStorage.getItem('taskValue'));
@@ -80,7 +85,7 @@ function updateEntireUI(){
     updatePendingTasks();
 }
 
-/*Remove selected list item*/
+/*Remove selected list item and update text-decoration for selected list item*/
 function removeSelectedItem(e){
     let value, arr, index;
     // if user clicks on the icon then clear list-item div
@@ -97,12 +102,64 @@ function removeSelectedItem(e){
         // update pending tasks as well
         updatePendingTasks();
     }
+    else if(e.target.classList.contains('edit')){
+
+        // creating new element 
+        const newDiv = document.createElement('div');
+        newDiv.className = 'input-div';
+        newDiv.innerHTML = `<input type="text" name="taskName" id="taskName" spellcheck="true" required>
+        <a href="#" id="addTask" class = "newInput"> <strong>+</strong> </a> `;
+        
+        // getting old element 
+        const oldDiv = e.target.parentElement;
+        unorderedList.replaceChild(newDiv,oldDiv);
+
+    }
+
+    else if(e.target.tagName === 'STRONG'){
+        
+        const textField = e.target.parentElement.parentElement.firstElementChild;
+        if(textField.value === ""){
+            textField.style.border = '2px solid red';
+        } else{
+            const parentElement = textField.parentElement.parentElement;
+            const oldElement = textField.parentElement;
+            const newItemDiv = document.createElement('div');
+            newItemDiv.className = 'list-item';
+            newItemDiv.innerHTML = 
+            `<li class="item">${textField.value}</li> 
+               <i class="fas fa-pen-square edit"></i>
+               <i class="fas fa-trash-alt hide"></i>
+            </div>`;
+
+            parentElement.replaceChild(newItemDiv,oldElement);
+        }
+     
+    }
+
+    else if(e.target.tagName === 'A'){
+        const textField = e.target.parentElement.firstElementChild;
+        if(textField.value === ""){
+            textField.style.border = '2px solid red';
+        } else{
+            const parentElement = textField.parentElement.parentElement;
+            const oldElement = textField.parentElement;
+            const newItemDiv = document.createElement('div');
+            newItemDiv.className = 'list-item';
+            newItemDiv.innerHTML = 
+            `<li class="item">${textField.value}</li> 
+               <i class="fas fa-pen-square edit"></i>
+               <i class="fas fa-trash-alt hide"></i>
+            </div>`;
+
+            parentElement.replaceChild(newItemDiv,oldElement);
+        }
+    }
+
     e.preventDefault();
 }
 
 
-
-updatePendingTasks();
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);

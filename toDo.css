@@ -48,7 +48,7 @@ body {
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
 
 .main-container .inside-main-container .list-items-div{
-    height: 210px;
+    height: 215px;
     overflow-y: auto;
 }
 
@@ -58,22 +58,30 @@ body {
     padding : 0.6rem;
     background-color: #c3c3c367;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
-/*STYLE EACH LIST ITEM IN LIST ITEM BLOCK*/
-.main-container .inside-main-container .list-items-div li {display: block;}
+.main-container .inside-main-container .list-items-div .list-item li{
+    list-style-type: none;
+    flex : 1.8;
+}
 
 /*WORK WITH ICONS*/
 .main-container .inside-main-container .list-items-div .list-item .hide{
-    opacity: 0;
+    color : crimson;
+    margin-left : 0.8rem;
 }
-.main-container .inside-main-container .list-items-div .list-item .hide:hover{
-    opacity: 1;
-    color : red;
-    cursor: pointer;
+
+.main-container .inside-main-container .list-items-div .list-item .edit{
+    color : crimson;
+    font-size : 1.2rem;
 }
+
+
+.main-container .inside-main-container .list-items-div .list-item .edit:hover,
+.main-container .inside-main-container .list-items-div .list-item .hide:hover,
+.main-container .inside-main-container .list-items-div .list-item li:hover {cursor : pointer;}
+
 
 /*STYLE LAST SECTION DIV*/
 .main-container .last-section-div{
@@ -94,6 +102,8 @@ body {
 
 /*STYLE LAST SECTION PARAGRAPH*/
 .main-container .last-section-div p{display : inline-block;}
+
+
 
 
 
