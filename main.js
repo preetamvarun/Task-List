@@ -6,6 +6,8 @@ const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElem
 let oldValue = "", newValue = "";
 
 
+// oldValueIndex = arr.indexOf('third')
+
 function updatePendingTasks(){
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
@@ -126,6 +128,13 @@ function removeSelectedItem(e){
             parentElement.replaceChild(newItemDiv,oldElement);
             newValue = textField.value;
             console.log(`old value is ${oldValue} and new value is ${newValue}`);
+            let tasks;
+            tasks = JSON.parse(localStorage.getItem('taskValue'));
+            let oldValueIndex = tasks.indexOf(oldValue);
+            console.log(`old index value is ${oldValueIndex}`);
+            tasks.splice(oldValueIndex,1);
+            tasks.splice(oldValueIndex,0,newValue);
+            localStorage.setItem('taskValue', JSON.stringify(tasks));
         }
     }
     e.preventDefault();
