@@ -73,10 +73,24 @@ body {
 }
 
 .main-container .inside-main-container .list-items-div .list-item .edit{
-    color : crimson;
+    color : rgb(241, 28, 71);
     font-size : 1.2rem;
 }
 
+#check{
+     font-size : 0.65rem;
+     background-color : rgb(139, 202, 43);
+     color : white;
+     padding : 0.3rem;
+     border-radius : 10%;
+     border-radius : 50%;
+     margin-left : 0.2rem;
+     opacity : 0;
+}
+
+#check:hover{
+    opacity : 1;
+}
 
 .main-container .inside-main-container .list-items-div .list-item .edit:hover,
 .main-container .inside-main-container .list-items-div .list-item .hide:hover,

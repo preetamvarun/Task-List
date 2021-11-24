@@ -6,8 +6,6 @@ const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElem
 let oldValue = "", newValue = "";
 
 
-// oldValueIndex = arr.indexOf('third')
-
 function updatePendingTasks(){
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
@@ -24,7 +22,10 @@ function showListItem(toDo){
      const newItemDiv = document.createElement('div');
      newItemDiv.className = 'list-item';
      newItemDiv.innerHTML = 
-     `<li class="item">${toDo}</li> 
+     `<li class="item">
+     ${toDo}
+     <i class="fas fa-check" id = "check"></i>
+     </li> 
         <i class="fas fa-pen-square edit"></i>
         <i class="fas fa-trash-alt hide"></i>
      </div>`;
@@ -43,7 +44,6 @@ function clearAll(){
 }
 
 function addTask(e){
-    console.log('entered into function');
     if(taskName.value === ""){
         showError.style.display = 'block';
         taskName.style.border = '1.5px solid red';
@@ -83,6 +83,8 @@ function updateEntireUI(){
 
 /*Remove selected list item and update text-decoration for selected list item*/
 function removeSelectedItem(e){
+
+
     let value, arr, index;
     // if user clicks on the icon then clear list-item div
     if(e.target.classList.contains('hide')){
@@ -97,6 +99,12 @@ function removeSelectedItem(e){
         e.target.parentElement.remove();
         // update pending tasks as well
         updatePendingTasks();
+    }
+
+    else if(e.target.id === 'check'){
+        const li = e.target.parentElement;
+        li.style.textDecoration === 'line-through' ?
+        li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
     }
 
     else if(e.target.classList.contains('edit')){
@@ -127,11 +135,9 @@ function removeSelectedItem(e){
             </div>`;
             parentElement.replaceChild(newItemDiv,oldElement);
             newValue = textField.value;
-            console.log(`old value is ${oldValue} and new value is ${newValue}`);
             let tasks;
             tasks = JSON.parse(localStorage.getItem('taskValue'));
             let oldValueIndex = tasks.indexOf(oldValue);
-            console.log(`old index value is ${oldValueIndex}`);
             tasks.splice(oldValueIndex,1);
             tasks.splice(oldValueIndex,0,newValue);
             localStorage.setItem('taskValue', JSON.stringify(tasks));
