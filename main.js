@@ -3,17 +3,15 @@ const addTaskBtn = document.getElementById('addTask');
 const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
-
+let oldValue = "", newValue = "";
 
 
 function updatePendingTasks(){
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
     newPara.innerHTML = `You have ${unorderedList.childElementCount} pending tasks`;
-
     /*get the old paragraph element*/
     const oldPara = document.getElementsByClassName('last-section-div')[0].firstElementChild;
-    
     /*get the parent*/
     const paraParent = oldPara.parentElement;
     paraParent.replaceChild(newPara,oldPara);
@@ -54,19 +52,15 @@ function addTask(e){
         taskName.style.border = '1px solid black';
         /*get the task value*/
         let taskValue = taskName.value;
-
         /*clear out user entered task in UI*/
         taskName.value = "";
-
         /*before adding the value to the local storage, Check*/
         let tasks;
         localStorage.getItem('taskValue') ===  null ? tasks = [] 
         : tasks = JSON.parse(localStorage.getItem('taskValue'));
-
         /* add task value to local storage */
         tasks.push(taskValue);
         localStorage.setItem('taskValue', JSON.stringify(tasks));
-
         showListItem(taskValue);
         updatePendingTasks();
     }
@@ -102,39 +96,17 @@ function removeSelectedItem(e){
         // update pending tasks as well
         updatePendingTasks();
     }
-    else if(e.target.classList.contains('edit')){
 
+    else if(e.target.classList.contains('edit')){
         // creating new element 
         const newDiv = document.createElement('div');
         newDiv.className = 'input-div';
         newDiv.innerHTML = `<input type="text" name="taskName" id="taskName" spellcheck="true" required>
-        <a href="#" id="addTask" class = "newInput"> <strong>+</strong> </a> `;
-        
+        <a href="#" id="addTask" class = "newInput"> + </a> `;
         // getting old element 
         const oldDiv = e.target.parentElement;
+        oldValue = oldDiv.firstElementChild.textContent;
         unorderedList.replaceChild(newDiv,oldDiv);
-
-    }
-
-    else if(e.target.tagName === 'STRONG'){
-        
-        const textField = e.target.parentElement.parentElement.firstElementChild;
-        if(textField.value === ""){
-            textField.style.border = '2px solid red';
-        } else{
-            const parentElement = textField.parentElement.parentElement;
-            const oldElement = textField.parentElement;
-            const newItemDiv = document.createElement('div');
-            newItemDiv.className = 'list-item';
-            newItemDiv.innerHTML = 
-            `<li class="item">${textField.value}</li> 
-               <i class="fas fa-pen-square edit"></i>
-               <i class="fas fa-trash-alt hide"></i>
-            </div>`;
-
-            parentElement.replaceChild(newItemDiv,oldElement);
-        }
-     
     }
 
     else if(e.target.tagName === 'A'){
@@ -151,11 +123,11 @@ function removeSelectedItem(e){
                <i class="fas fa-pen-square edit"></i>
                <i class="fas fa-trash-alt hide"></i>
             </div>`;
-
             parentElement.replaceChild(newItemDiv,oldElement);
+            newValue = textField.value;
+            console.log(`old value is ${oldValue} and new value is ${newValue}`);
         }
     }
-
     e.preventDefault();
 }
 
