@@ -94,7 +94,7 @@ function removeSelectedItem(e){
 
         let itemName = '',tasks = [], index = -1;
 
-        itemName = e.target.parentElement.firstElementChild.textContent.slice(0,-1); // remove last character space from the string
+        itemName = e.target.parentElement.firstElementChild.textContent.trim(); // remove last character space from the string
 
         tasks = JSON.parse(localStorage.getItem('taskValue'));
         taskStatus = JSON.parse(localStorage.getItem('isChecked'));
@@ -125,18 +125,18 @@ function removeSelectedItem(e){
         <a href="#" id="addTask" class = "newInput"> + </a> `;
         // getting old element 
         const oldDiv = e.target.parentElement;
-        console.log(oldDiv);
-        oldValue = oldDiv.firstElementChild.innerHTML;
-        console.log(`old value is ${oldValue}`);
+        oldValue = oldDiv.firstElementChild.textContent.trim();
         unorderedList.replaceChild(newDiv,oldDiv);
     }
 
     /*Adding task value after user clicks edit button*/
     else if(e.target.tagName === 'A'){
         const textField = e.target.parentElement.firstElementChild;
-        if(textField.value === ""){
+        newValue = textField.value.trim();
+        if(newValue === ""){
             textField.style.border = '2px solid red';
         } else{
+            let index = -1;
             const parentElement = textField.parentElement.parentElement;
             const oldElement = textField.parentElement;
             const newItemDiv = document.createElement('div');
@@ -147,14 +147,11 @@ function removeSelectedItem(e){
                <i class="fas fa-trash-alt hide"></i>
             </div>`;
             parentElement.replaceChild(newItemDiv,oldElement);
-
             let tasks;
             tasks = JSON.parse(localStorage.getItem('taskValue'));
-            newValue = textField.value;
-
-            console.log(`new value : ${newValue} & old value : ${oldValue}`);
-            console.log(tasks);
-
+            index = tasks.indexOf(oldValue); // getting the index of old value
+            tasks.splice(index,1); // removing the old value from the local storage
+            tasks.splice(index,0,newValue); // keeping new value in place of old value
             localStorage.setItem('taskValue', JSON.stringify(tasks));
         }
     }
