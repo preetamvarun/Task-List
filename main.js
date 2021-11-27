@@ -3,6 +3,7 @@ const addTaskBtn = document.getElementById('addTask');
 const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
+
 let oldValue = "", newValue = "";
 
 
@@ -75,13 +76,27 @@ function addTask(e){
 
 /*UPDATE UI from local storage data*/
 function updateEntireUI(){
-    updatePendingTasks();
+
     let tasks;
     localStorage.getItem('taskValue') ===  null ? tasks = [] 
     : tasks = JSON.parse(localStorage.getItem('taskValue'));
     tasks.forEach(function(eachTask){
         showListItem(eachTask);
     });
+
+    let taskStatus;
+    localStorage.getItem('isChecked') === null ? taskStatus = [] :
+    taskStatus = JSON.parse(localStorage.getItem('isChecked'));
+
+    const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+
+    for(let i = 0; i < listItemArray.length; i++){
+        taskStatus[i] ? 
+        listItemArray[i].firstElementChild.style.textDecoration = 'line-through' : 
+        listItemArray[i].firstElementChild.style.textDecoration = 'none';
+    }
+
+    // updating pending tasks
     updatePendingTasks();
 }
 
@@ -119,10 +134,9 @@ function removeSelectedItem(e){
         taskStatus = JSON.parse(localStorage.getItem('isChecked'));
         index = tasks.indexOf(listItemValue);
         taskStatus[index] = !taskStatus[index];
-        console.log(taskStatus);
-        localStorage.setItem('isChecked',JSON.stringify(taskStatus));
         li.style.textDecoration === 'line-through' ?
         li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
+        localStorage.setItem('isChecked',JSON.stringify(taskStatus));
     }
 
     else if(e.target.classList.contains('edit')){
