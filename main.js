@@ -102,7 +102,6 @@ function updateEntireUI(){
 
 /*Remove selected list item and update text-decoration for selected list item*/
 function removeSelectedItem(e){
-    
 
     // if user clicks on the delete icon then clear list-item div
     if(e.target.classList.contains('hide')){
