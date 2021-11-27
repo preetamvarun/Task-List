@@ -79,7 +79,8 @@ body {
 
 #check{
      font-size : 0.65rem;
-     background-color : rgb(139, 202, 43);
+     /* background-color : rgb(139, 202, 43); */
+     background-color : rgb(238, 49, 80);
      color : white;
      padding : 0.3rem;
      border-radius : 10%;

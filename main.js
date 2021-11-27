@@ -22,10 +22,7 @@ function showListItem(toDo){
      const newItemDiv = document.createElement('div');
      newItemDiv.className = 'list-item';
      newItemDiv.innerHTML = 
-     `<li class="item">
-     ${toDo}
-     <i class="fas fa-check" id = "check"></i>
-     </li> 
+     `<li class="item">${toDo}<i class="fas fa-check" id = "check"></i> </li> 
         <i class="fas fa-pen-square edit"></i>
         <i class="fas fa-trash-alt hide"></i>
      </div>`;
@@ -50,19 +47,26 @@ function addTask(e){
         showError.textContent = "please enter your task";
         showError.style.color = 'red';
     } else{
+        let taskValue = "";
         showError.style.display = 'none';
         taskName.style.border = '1px solid black';
         /*get the task value*/
-        let taskValue = taskName.value;
+        taskValue = taskName.value;
         /*clear out user entered task in UI*/
         taskName.value = "";
         /*before adding the value to the local storage, Check*/
         let tasks;
         localStorage.getItem('taskValue') ===  null ? tasks = [] 
         : tasks = JSON.parse(localStorage.getItem('taskValue'));
+        /*initially the taskStatus will be false i.e., unchecked*/
+        let taskStatus;
+        localStorage.getItem('isChecked') === null ? taskStatus = [] :
+        taskStatus = JSON.parse(localStorage.getItem('isChecked'));
         /* add task value to local storage */
         tasks.push(taskValue);
+        taskStatus.push(false);
         localStorage.setItem('taskValue', JSON.stringify(tasks));
+        localStorage.setItem('isChecked', JSON.stringify(taskStatus));
         showListItem(taskValue);
         updatePendingTasks();
     }
@@ -75,37 +79,43 @@ function updateEntireUI(){
     let tasks;
     localStorage.getItem('taskValue') ===  null ? tasks = [] 
     : tasks = JSON.parse(localStorage.getItem('taskValue'));
-    tasks.forEach(function(task){
-        showListItem(task);
+    tasks.forEach(function(eachTask){
+        showListItem(eachTask);
     });
     updatePendingTasks();
 }
 
 /*Remove selected list item and update text-decoration for selected list item*/
 function removeSelectedItem(e){
+    
 
-
-    let value, arr, index;
-    // if user clicks on the icon then clear list-item div
+    // if user clicks on the delete icon then clear list-item div
     if(e.target.classList.contains('hide')){
-        value = e.target.parentElement.firstElementChild.textContent;
-        arr = JSON.parse(localStorage.getItem('taskValue'));
-        index = arr.indexOf(value);
-        // now remove the value from the local storage also
-        arr.splice(index,1);
+
+        let itemName = '',tasks = [], index = -1;
+
+        itemName = e.target.parentElement.firstElementChild.textContent.slice(0,-1); // remove last character space from the string
+
+        tasks = JSON.parse(localStorage.getItem('taskValue'));
+        taskStatus = JSON.parse(localStorage.getItem('isChecked'));
+
+        index = tasks.indexOf(itemName);
+
+        tasks.splice(index,1);
+        taskStatus.splice(index,1);
+
         // set the new array to taskValue
-        localStorage.setItem('taskValue',JSON.stringify(arr));
-        // remove it from the ui as well
+        localStorage.setItem('taskValue',JSON.stringify(tasks));
+        localStorage.setItem('isChecked',JSON.stringify(taskStatus));
         e.target.parentElement.remove();
-        // update pending tasks as well
         updatePendingTasks();
     }
 
-    else if(e.target.id === 'check'){
-        const li = e.target.parentElement;
-        li.style.textDecoration === 'line-through' ?
-        li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
-    }
+    // else if(e.target.id === 'check'){
+    //     const li = e.target.parentElement;
+    //     li.style.textDecoration === 'line-through' ?
+    //     li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
+    // }
 
     else if(e.target.classList.contains('edit')){
         // creating new element 
@@ -115,10 +125,13 @@ function removeSelectedItem(e){
         <a href="#" id="addTask" class = "newInput"> + </a> `;
         // getting old element 
         const oldDiv = e.target.parentElement;
-        oldValue = oldDiv.firstElementChild.textContent;
+        console.log(oldDiv);
+        oldValue = oldDiv.firstElementChild.innerHTML;
+        console.log(`old value is ${oldValue}`);
         unorderedList.replaceChild(newDiv,oldDiv);
     }
 
+    /*Adding task value after user clicks edit button*/
     else if(e.target.tagName === 'A'){
         const textField = e.target.parentElement.firstElementChild;
         if(textField.value === ""){
@@ -129,20 +142,23 @@ function removeSelectedItem(e){
             const newItemDiv = document.createElement('div');
             newItemDiv.className = 'list-item';
             newItemDiv.innerHTML = 
-            `<li class="item">${textField.value}</li> 
+            `<li class="item">${textField.value} <i class="fas fa-check" id = "check"></i> </li> 
                <i class="fas fa-pen-square edit"></i>
                <i class="fas fa-trash-alt hide"></i>
             </div>`;
             parentElement.replaceChild(newItemDiv,oldElement);
-            newValue = textField.value;
+
             let tasks;
             tasks = JSON.parse(localStorage.getItem('taskValue'));
-            let oldValueIndex = tasks.indexOf(oldValue);
-            tasks.splice(oldValueIndex,1);
-            tasks.splice(oldValueIndex,0,newValue);
+            newValue = textField.value;
+
+            console.log(`new value : ${newValue} & old value : ${oldValue}`);
+            console.log(tasks);
+
             localStorage.setItem('taskValue', JSON.stringify(tasks));
         }
     }
+
     e.preventDefault();
 }
 
