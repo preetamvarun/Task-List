@@ -111,11 +111,19 @@ function removeSelectedItem(e){
         updatePendingTasks();
     }
 
-    // else if(e.target.id === 'check'){
-    //     const li = e.target.parentElement;
-    //     li.style.textDecoration === 'line-through' ?
-    //     li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
-    // }
+    else if(e.target.id === 'check'){
+        let index; 
+        const listItemValue = e.target.parentElement.textContent.trim();
+        const li = e.target.parentElement;
+        tasks = JSON.parse(localStorage.getItem('taskValue'));
+        taskStatus = JSON.parse(localStorage.getItem('isChecked'));
+        index = tasks.indexOf(listItemValue);
+        taskStatus[index] = !taskStatus[index];
+        console.log(taskStatus);
+        localStorage.setItem('isChecked',JSON.stringify(taskStatus));
+        li.style.textDecoration === 'line-through' ?
+        li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
+    }
 
     else if(e.target.classList.contains('edit')){
         // creating new element 
