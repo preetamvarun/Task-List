@@ -3,26 +3,46 @@ const addTaskBtn = document.getElementById('addTask');
 const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
+const filters = document.querySelector('select');
 
 let oldValue = "", newValue = "";
+
+function filterOutTasks(e){
+    let filterStatus = e.target.value.trim();
+    const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+    if(filterStatus === 'All'){
+        listItemArray.forEach(function(eachItem){
+            eachItem.style.display = 'flex';
+        });
+    } else if(filterStatus === 'Completed'){
+        listItemArray.forEach(function(eachItem){
+            eachItem.firstElementChild.style.textDecoration === 'none' ?
+            eachItem.style.display = 'none' : eachItem.style.display = 'flex';
+        });
+    } else{
+        listItemArray.forEach(function(eachItem){
+            eachItem.firstElementChild.style.textDecoration === 'none' ?
+            eachItem.style.display = 'flex' : eachItem.style.display = 'none';
+        });
+    }
+    e.preventDefault();
+}
 
 
 function updatePendingTasks(){
 
-    let count = 0;
-
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+    let completedTasks = 0;
 
     listItemArray.forEach(function(eachItem){
         if(eachItem.firstElementChild.style.textDecoration === 'line-through'){
-            count++;
+            completedTasks++;
         }
     });
 
-    console.log(`No.of checked off tasks are ${count}`);
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
-    newPara.innerHTML = `You have ${unorderedList.childElementCount - count} pending tasks`;
+    newPara.innerHTML = `You have ${unorderedList.childElementCount - completedTasks} pending tasks`;
     /*get the old paragraph element*/
     const oldPara = document.getElementsByClassName('last-section-div')[0].firstElementChild;
     /*get the parent*/
@@ -148,14 +168,13 @@ function removeSelectedItem(e){
         li.style.textDecoration === 'line-through' ?
         li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
-        console.log('updating pending tasks');
         updatePendingTasks();
     }
 
     else if(e.target.classList.contains('edit')){
         // creating new element 
         const newDiv = document.createElement('div');
-        newDiv.className = 'input-div';
+        newDiv.className = 'input-div edit-input-div';
         newDiv.innerHTML = `<input type="text" name="taskName" id="taskName" spellcheck="true" required>
         <a href="#" id="addTask" class = "newInput"> + </a> `;
         // getting old element 
@@ -199,3 +218,6 @@ addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);
 unorderedList.addEventListener('click',removeSelectedItem);
+filters.addEventListener('click',filterOutTasks);
+
+

@@ -16,16 +16,17 @@ body {
     position: absolute;
     top: 50%;
     left : 50%;
-    width: 350px;
-    margin-top : -175px;
-    margin-left : -175px;
+    width: 400px;
+    margin-top : -200px;
+    margin-left : -200px;
 }
 
 /* STYLING MAIN CONTAINER HEADING */
 .main-container h2 {margin: 0.8rem;}
 
 /*STYLE MAIN CONTAINER INPUT DIV*/
-.main-container .inside-main-container .input-div input {width : 80%;}
+.main-container .inside-main-container .input-div input {width : 52%;}
+.main-container .inside-main-container .edit-input-div input {width : 80%;}
 
 /*STYLE MAIN CONTAINER INPUT DIV BUTTON*/
 .main-container .inside-main-container .input-div a{
@@ -33,14 +34,14 @@ body {
     color : white;
     background-color : rgb(238, 49, 80);
     text-align: center;
-    width : 14%;
+    width : 10%;
     border-radius: 10%;
 }
 .main-container .inside-main-container .input-div{
     display: flex;
     justify-content: space-evenly;
 }
-.main-container .inside-main-container .input-div input,a {padding : 0.35rem;}
+.main-container .inside-main-container .input-div input,a,select {padding : 0.35rem;}
 
 /*STYLE LIST ITEMS DIV*/
 .main-container .inside-main-container .list-items-div ul {list-style: none;}
