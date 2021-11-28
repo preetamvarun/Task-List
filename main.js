@@ -8,9 +8,21 @@ let oldValue = "", newValue = "";
 
 
 function updatePendingTasks(){
+
+    let count = 0;
+
+    const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+
+    listItemArray.forEach(function(eachItem){
+        if(eachItem.firstElementChild.style.textDecoration === 'line-through'){
+            count++;
+        }
+    });
+
+    console.log(`No.of checked off tasks are ${count}`);
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
-    newPara.innerHTML = `You have ${unorderedList.childElementCount} pending tasks`;
+    newPara.innerHTML = `You have ${unorderedList.childElementCount - count} pending tasks`;
     /*get the old paragraph element*/
     const oldPara = document.getElementsByClassName('last-section-div')[0].firstElementChild;
     /*get the parent*/
@@ -136,6 +148,8 @@ function removeSelectedItem(e){
         li.style.textDecoration === 'line-through' ?
         li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
+        console.log('updating pending tasks');
+        updatePendingTasks();
     }
 
     else if(e.target.classList.contains('edit')){
