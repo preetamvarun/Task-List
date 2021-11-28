@@ -22,7 +22,6 @@ The purpose of this project is to understand and implement the javascript concep
 <img src = "images/f.png" alt = "taskListImage" height = 350 width = 750>
 <img src = "images/g.png" alt = "taskListImage" height = 350 width = 750>
 <img src = "images/h.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/i.png" alt = "taskListImage" height = 350 width = 750>
 
 
 ## 3. Preview 🎥
