@@ -222,3 +222,4 @@ unorderedList.addEventListener('click',removeSelectedItem);
 filters.addEventListener('click',filterOutTasks);
 
 
+/* WILL REVISIT THIS PROJECT FOR FURTHER IMPROVEMENTS OR IF I ENCOUNTER ANY BUGS */
