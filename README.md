@@ -45,3 +45,11 @@ open index.html with a browser you prefer
 [![HTML](https://img.shields.io/badge/HTML-currentVersion5-green)](https://devdocs.io/html/)   
 [![CSS](https://img.shields.io/badge/CSS-currentVersion3-violet)](https://devdocs.io/css/)   
 
+## 6. Features
+Edit tasks ✍️
+Filter tasks 🔍
+delete tasks 🗑️
+check off tasks ✅
+local storage 🗃️
+User friendly 🙋
+
