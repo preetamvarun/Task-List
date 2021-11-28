@@ -3,13 +3,15 @@ const addTaskBtn = document.getElementById('addTask');
 const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
+const lastSection = document.getElementById('last-section');
 const filters = document.querySelector('select');
 
-let oldValue = "", newValue = "";
+let oldValue = "", newValue = "", oldStyle = "";
 
 function filterOutTasks(e){
     let filterStatus = e.target.value.trim();
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+
     if(filterStatus === 'All'){
         listItemArray.forEach(function(eachItem){
             eachItem.style.display = 'flex';
@@ -30,16 +32,13 @@ function filterOutTasks(e){
 
 
 function updatePendingTasks(){
-
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
     let completedTasks = 0;
-
     listItemArray.forEach(function(eachItem){
         if(eachItem.firstElementChild.style.textDecoration === 'line-through'){
             completedTasks++;
         }
     });
-
     /*create a new paragraph element*/
     const newPara = document.createElement('p');
     newPara.innerHTML = `You have ${unorderedList.childElementCount - completedTasks} pending tasks`;
@@ -179,6 +178,7 @@ function removeSelectedItem(e){
         <a href="#" id="addTask" class = "newInput"> + </a> `;
         // getting old element 
         const oldDiv = e.target.parentElement;
+        oldStyle = oldDiv.firstElementChild.style.textDecoration;
         oldValue = oldDiv.firstElementChild.textContent.trim();
         unorderedList.replaceChild(newDiv,oldDiv);
     }
@@ -201,6 +201,7 @@ function removeSelectedItem(e){
                <i class="fas fa-trash-alt hide"></i>
             </div>`;
             parentElement.replaceChild(newItemDiv,oldElement);
+            newItemDiv.firstElementChild.style.textDecoration = oldStyle;
             let tasks;
             tasks = JSON.parse(localStorage.getItem('taskValue'));
             index = tasks.indexOf(oldValue); // getting the index of old value
