@@ -41,7 +41,7 @@ open index.html with a browser you prefer
 ```
 ## 5.Technologies Used ✳️
 
-[![Javascript](https://img.shields.io/badge/Javascript-pureJavascript-orange)](https://devdocs.io/javascript/)   
+[![Javascript](https://img.shields.io/badge/Javascript-vanillaJs-orange)](https://devdocs.io/javascript/)   
 [![HTML](https://img.shields.io/badge/HTML-currentVersion5-green)](https://devdocs.io/html/)   
 [![CSS](https://img.shields.io/badge/CSS-currentVersion3-violet)](https://devdocs.io/css/)   
 
