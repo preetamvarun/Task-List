@@ -18,8 +18,8 @@ function filterOutTasks(e){
         });
     } else if(filterStatus === 'Completed'){
         listItemArray.forEach(function(eachItem){
-            eachItem.firstElementChild.style.textDecoration === 'none' ?
-            eachItem.style.display = 'none' : eachItem.style.display = 'flex';
+            eachItem.firstElementChild.style.textDecoration !== 'none' ?
+            eachItem.style.display = 'flex' : eachItem.style.display = 'none';
         });
     } else{
         listItemArray.forEach(function(eachItem){
