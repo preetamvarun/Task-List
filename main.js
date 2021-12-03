@@ -11,7 +11,6 @@ let oldValue = "", newValue = "", oldStyle = "";
 function filterOutTasks(e){
     let filterStatus = e.target.value.trim();
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
-
     if(filterStatus === 'All'){
         listItemArray.forEach(function(eachItem){
             eachItem.style.display = 'flex';
@@ -54,7 +53,7 @@ function showListItem(toDo){
      const newItemDiv = document.createElement('div');
      newItemDiv.className = 'list-item';
      newItemDiv.innerHTML = 
-     `<li class="item">${toDo}<i class="fas fa-check" id = "check"></i> </li> 
+     `<li class="item" style = "text-decoration : none;">${toDo}<i class="fas fa-check" id = "check"></i> </li> 
         <i class="fas fa-pen-square edit"></i>
         <i class="fas fa-trash-alt hide"></i>
      </div>`;
@@ -70,39 +69,6 @@ function clearAll(){
     });
     updatePendingTasks();
     localStorage.clear();
-}
-
-function addTask(e){
-    if(taskName.value === ""){
-        showError.style.display = 'block';
-        taskName.style.border = '1.5px solid red';
-        showError.textContent = "please enter your task";
-        showError.style.color = 'red';
-    } else{
-        let taskValue = "";
-        showError.style.display = 'none';
-        taskName.style.border = '1px solid black';
-        /*get the task value*/
-        taskValue = taskName.value;
-        /*clear out user entered task in UI*/
-        taskName.value = "";
-        /*before adding the value to the local storage, Check*/
-        let tasks;
-        localStorage.getItem('taskValue') ===  null ? tasks = [] 
-        : tasks = JSON.parse(localStorage.getItem('taskValue'));
-        /*initially the taskStatus will be false i.e., unchecked*/
-        let taskStatus;
-        localStorage.getItem('isChecked') === null ? taskStatus = [] :
-        taskStatus = JSON.parse(localStorage.getItem('isChecked'));
-        /* add task value to local storage */
-        tasks.push(taskValue);
-        taskStatus.push(false);
-        localStorage.setItem('taskValue', JSON.stringify(tasks));
-        localStorage.setItem('isChecked', JSON.stringify(taskStatus));
-        showListItem(taskValue);
-        updatePendingTasks();
-    }
-    e.preventDefault();
 }
 
 /*UPDATE UI from local storage data*/
@@ -129,6 +95,40 @@ function updateEntireUI(){
 
     // updating pending tasks
     updatePendingTasks();
+}
+
+function addTask(e){
+    if(taskName.value === ""){
+        showError.style.display = 'block';
+        taskName.style.border = '1.5px solid red';
+        showError.textContent = "please enter your task";
+        showError.style.color = 'red';
+    } else{
+        let taskValue = "";
+        showError.style.display = 'none';
+        taskName.style.border = '1px solid black';
+        /*get the task value*/
+        taskValue = taskName.value.trim();
+        /*clear out user entered task in UI*/
+        taskName.value = "";
+        /*before adding the value to the local storage, Check*/
+        let tasks;
+        localStorage.getItem('taskValue') ===  null ? tasks = [] 
+        : tasks = JSON.parse(localStorage.getItem('taskValue'));
+        /*initially the taskStatus will be false i.e., unchecked*/
+        let taskStatus;
+        localStorage.getItem('isChecked') === null ? taskStatus = [] :
+        taskStatus = JSON.parse(localStorage.getItem('isChecked'));
+        /* add task value to local storage */
+        tasks.push(taskValue);
+        taskStatus.push(false);
+        localStorage.setItem('taskValue', JSON.stringify(tasks));
+        localStorage.setItem('isChecked', JSON.stringify(taskStatus));
+        showListItem(taskValue);
+        updatePendingTasks();
+        location.reload();
+    }
+    e.preventDefault();
 }
 
 /*Remove selected list item and update text-decoration for selected list item*/
