@@ -46,6 +46,7 @@ open index.html with a browser you prefer
 [![CSS](https://img.shields.io/badge/CSS-currentVersion3-violet)](https://devdocs.io/css/)   
 
 ## 6. Features
+Add tasks ➕ <br>
 Edit tasks ✍️ <br>
 Filter tasks 🔍 <br>
 delete tasks 🗑️ <br>
