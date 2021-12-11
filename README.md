@@ -26,6 +26,9 @@ The purpose of this project is to understand and implement the javascript concep
 
 ## 3. Preview 🎥
 
+<img src = "images/to-do.gif" alt = "tasklistPreview" height = 350 width = 750>
+
+
 ## 4. Installation 📀
 
 #### Clone the repo
