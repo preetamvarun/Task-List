@@ -1,3 +1,8 @@
 @media (max-width : 500px){
-    
+    .main-container{
+        background-color : white;
+        width: 95%;
+    }
+    .main-container .inside-main-container .input-div input {width : 30%;}
+    .main-container .inside-main-container .edit-input-div input {width : 30%;}    
 }
