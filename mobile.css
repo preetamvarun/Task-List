@@ -2,7 +2,14 @@
     .main-container{
         background-color : white;
         width: 95%;
+    } 
+    #tasks{
+        display: none;
     }
-    .main-container .inside-main-container .input-div input {width : 30%;}
-    .main-container .inside-main-container .edit-input-div input {width : 30%;}    
+}
+
+@media (max-width : 768px){
+    #tasks{
+        display: none;
+    }
 }
