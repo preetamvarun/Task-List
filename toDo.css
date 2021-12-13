@@ -7,18 +7,16 @@
 body {
     background-color: rgb(231, 50, 50);
     font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* STYLING MAIN CONTAINER */
 .main-container{
     background-color : white;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left : 50%;
-    width: 400px;
-    margin-top : -200px;
-    margin-left : -200px;
+    width: 32%;
 }
 
 /* STYLING MAIN CONTAINER HEADING */
@@ -49,7 +47,7 @@ body {
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
 
 .main-container .inside-main-container .list-items-div{
-    height: 215px;
+    height: 200px;
     overflow-y: auto;
 }
 
@@ -80,7 +78,6 @@ body {
 
 #check{
      font-size : 0.65rem;
-     /* background-color : rgb(139, 202, 43); */
      background-color : rgb(238, 49, 80);
      color : white;
      padding : 0.3rem;
