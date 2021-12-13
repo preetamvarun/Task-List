@@ -9,9 +9,11 @@ const options = document.querySelector('options');
 
 console.log(filters);
 
-let oldValue = "", newValue = "", oldStyle = "";
+let oldValue = "", newValue = "", oldStyle = "", initialClick = true;
 
 function filterOutTasks(e){
+    initialClick = !initialClick;
+    if(initialClick){
     let filterStatus = e.target.value.trim();
     console.log(filterStatus);
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
@@ -30,6 +32,7 @@ function filterOutTasks(e){
             eachItem.style.display = 'flex' : eachItem.style.display = 'none';
         });
     }
+}
     e.preventDefault();
 }
 
