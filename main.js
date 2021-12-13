@@ -126,7 +126,6 @@ function addTask(e){
         localStorage.setItem('isChecked', JSON.stringify(taskStatus));
         showListItem(taskValue);
         updatePendingTasks();
-        location.reload();
     }
     e.preventDefault();
 }
@@ -176,7 +175,7 @@ function removeSelectedItem(e){
         newDiv.className = 'input-div edit-input-div';
         newDiv.innerHTML = `<input type="text" name="taskName" id="taskName" spellcheck="true" required>
         <a href="#" id="addTask" class = "newInput"> + </a> `;
-        // getting old element 
+        // getting old element
         const oldDiv = e.target.parentElement;
         oldStyle = oldDiv.firstElementChild.style.textDecoration;
         oldValue = oldDiv.firstElementChild.textContent.trim();
