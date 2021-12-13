@@ -4,12 +4,16 @@ const showError = document.getElementById('showError');
 const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 const lastSection = document.getElementById('last-section');
-const filters = document.querySelector('select');
+const filters = document.getElementById('tasks');
+const options = document.querySelector('options');
+
+console.log(filters);
 
 let oldValue = "", newValue = "", oldStyle = "";
 
 function filterOutTasks(e){
     let filterStatus = e.target.value.trim();
+    console.log(filterStatus);
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
     if(filterStatus === 'All'){
         listItemArray.forEach(function(eachItem){
