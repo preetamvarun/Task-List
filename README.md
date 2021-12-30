@@ -4,15 +4,18 @@ A web app that is built with **HTML5,CSS3 & Vanilla JAVASCRIPT**
 > Note : Make sure you have the internet connection to render icons.
 
 ## Table of contents
-- [General Info](#General-Info-)
-- [Screenshots](#screenshots-)
-- [Preview](#preview-)
-- [Installation](#Installation-)
-- [Technologies](#Technologies-Used-)
+- [General Info](#GeneralInfo)
+- [Screenshots](#screenshots)
+- [Preview](#preview)
+- [Installation](#Installation)
+- [Technologies](#Tech)
+- [Features](#Features)
 
+<a name = "GeneralInfo"> </a>
 ## 1. General Info 📝
 The purpose of this project is to understand and implement the javascript concepts that i've learned to make the user interface look appealing besides having fun along the journey :smiley:.
 
+<a name = "screenshots"> </a>
 ## 2. Screenshots 📸
 <img src = "images/a.png" alt = "taskListImage" height = 350 width = 750>
 <img src = "images/b.png" alt = "taskListImage" height = 350 width = 750>
@@ -23,12 +26,12 @@ The purpose of this project is to understand and implement the javascript concep
 <img src = "images/g.png" alt = "taskListImage" height = 350 width = 750>
 <img src = "images/h.png" alt = "taskListImage" height = 350 width = 750>
 
-
+<a name = "preview"> </a>
 ## 3. Preview 🎥
 
 <img src = "images/to-do.gif" alt = "tasklistPreview" height = 350 width = 750>
 
-
+<a name = "Installation"> </a>
 ## 4. Installation 📀
 
 #### Clone the repo
@@ -42,12 +45,15 @@ $ cd Task-List/
 ```sh
 open index.html with a browser you prefer
 ```
+
+<a name = "Tech"> </a>
 ## 5.Technologies Used ✳️
 
 [![Javascript](https://img.shields.io/badge/Javascript-vanillaJs-orange)](https://devdocs.io/javascript/)   
 [![HTML](https://img.shields.io/badge/HTML-currentVersion5-green)](https://devdocs.io/html/)   
 [![CSS](https://img.shields.io/badge/CSS-currentVersion3-violet)](https://devdocs.io/css/)   
 
+<a name = "Features"> </a>
 ## 6. Features
 Add tasks ➕ <br>
 Edit tasks ✍️ <br>
