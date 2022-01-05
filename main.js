@@ -9,13 +9,9 @@ const All = document.getElementById('All')
 const Completed = document.getElementById('Completed')
 const Uncompleted = document.getElementById('Uncompleted')
 
-let c = 0;
-
 let oldValue = "", newValue = "", oldStyle = "";
 
 function filterOutTasks(e){
-    console.log(`clicked : ${c}`)
-    c++;
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
     if(All.selected){
         listItemArray.forEach(function(eachItem){
