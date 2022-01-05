@@ -119,7 +119,19 @@ body {
 /*STYLE LAST SECTION PARAGRAPH*/
 .main-container .last-section-div p{display : inline-block;}
 
+@media (max-width : 768px){
+    .main-container{
+        background-color : white;
+        width: 55%;
+    } 
+}
 
+@media (max-width : 1024px){
+    .main-container{
+        background-color: white;
+        width: 55%;
+    }
+}
 
 
 
