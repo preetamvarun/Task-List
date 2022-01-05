@@ -130,7 +130,6 @@ function addTask(e){
         localStorage.setItem('taskValue', JSON.stringify(tasks));
         localStorage.setItem('isChecked', JSON.stringify(taskStatus));
         showListItem(taskValue);
-        updateEntireUI();
     }
     e.preventDefault();
 }
