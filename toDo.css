@@ -87,12 +87,15 @@ body {
      opacity : 0;
 }
 
-#check:hover{
+#check:hover, #check:active{
     opacity : 1;
 }
 
 .main-container .inside-main-container .list-items-div .list-item .edit:hover,
+.main-container .inside-main-container .list-items-div .list-item .edit:active,
 .main-container .inside-main-container .list-items-div .list-item .hide:hover,
+.main-container .inside-main-container .list-items-div .list-item .hide:active,
+.main-container .inside-main-container .list-items-div .list-item li:active,
 .main-container .inside-main-container .list-items-div .list-item li:hover {cursor : pointer;}
 
 
