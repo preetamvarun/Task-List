@@ -119,28 +119,4 @@ body {
 /*STYLE LAST SECTION PARAGRAPH*/
 .main-container .last-section-div p{display : inline-block;}
 
-/* MEDIA QUERIES FOR DIFFERENT SCREEN SIZES */
-
-@media(max-width : 500px){
-    .main-container{
-        background-color : white;
-        width: 98%;
-    } 
-}
-
-@media(max-width : 768px){
-    .main-container{
-        background-color : yellow;
-        width: 55%;
-    } 
-}
-
-@media(max-width : 1024px){
-    .main-container{
-        background-color: white;
-        width: 55%;
-    }
-}
-
-
 
