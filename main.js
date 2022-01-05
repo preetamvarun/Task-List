@@ -5,30 +5,28 @@ const unorderedList = document.querySelector('ul');
 const clearBtn = document.getElementsByClassName('last-section-div')[0].lastElementChild;
 const lastSection = document.getElementById('last-section');
 const filters = document.getElementById('tasks');
-const options = document.querySelector('options');
+const All = document.getElementById('All')
+const Completed = document.getElementById('Completed')
+const Uncompleted = document.getElementById('Uncompleted')
 
-let oldValue = "", newValue = "", oldStyle = "", initialClick = true;
+let oldValue = "", newValue = "", oldStyle = "";
 
 function filterOutTasks(e){
-    initialClick = !initialClick;
-    if(initialClick){
-        let filterStatus = e.target.value.trim();
-        const listItemArray = Array.from(document.getElementsByClassName('list-item'));
-        if(filterStatus === 'All'){
-            listItemArray.forEach(function(eachItem){
-                eachItem.style.display = 'flex';
-            });
-        } else if(filterStatus === 'Completed'){
-            listItemArray.forEach(function(eachItem){
-                eachItem.firstElementChild.style.textDecoration !== 'none' ?
-                eachItem.style.display = 'flex' : eachItem.style.display = 'none';
-            });
-        } else{
-            listItemArray.forEach(function(eachItem){
-                eachItem.firstElementChild.style.textDecoration === 'none' ?
-                eachItem.style.display = 'flex' : eachItem.style.display = 'none';
-            });
-        }
+    const listItemArray = Array.from(document.getElementsByClassName('list-item'));
+    if(All.selected){
+        listItemArray.forEach(function(eachItem){
+            eachItem.style.display = 'flex';
+        });
+    } else if(Completed.selected){
+        listItemArray.forEach(function(eachItem){
+            eachItem.firstElementChild.style.textDecoration !== 'none' ?
+            eachItem.style.display = 'flex' : eachItem.style.display = 'none';
+        });
+    } else{
+        listItemArray.forEach(function(eachItem){
+            eachItem.firstElementChild.style.textDecoration === 'none' ?
+            eachItem.style.display = 'flex' : eachItem.style.display = 'none';
+        });
     }
     e.preventDefault();
 }
@@ -97,6 +95,9 @@ function updateEntireUI(){
         listItemArray[i].firstElementChild.style.textDecoration = 'none';
     }
 
+    All.selected = true;
+    Completed.selected = false;
+    Uncompleted.selected = false;
     // updating pending tasks
     updatePendingTasks();
 }
@@ -129,7 +130,7 @@ function addTask(e){
         localStorage.setItem('taskValue', JSON.stringify(tasks));
         localStorage.setItem('isChecked', JSON.stringify(taskStatus));
         showListItem(taskValue);
-        updatePendingTasks();
+        updateEntireUI();
     }
     e.preventDefault();
 }
@@ -223,6 +224,8 @@ document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);
 unorderedList.addEventListener('click',removeSelectedItem);
 filters.addEventListener('click',filterOutTasks);
+
+
 
 
 /* WILL REVISIT THIS PROJECT FOR FURTHER IMPROVEMENTS OR IF I ENCOUNTER ANY BUGS */
