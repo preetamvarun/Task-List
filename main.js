@@ -62,6 +62,7 @@ function showListItem(toDo){
      </div>`;
      /*Now updating the UI (append it to the parent element)*/
      unorderedList.appendChild(newItemDiv);
+     updatePendingTasks();
 }
 
 function clearAll(){
