@@ -55,7 +55,7 @@ body {
 .main-container .inside-main-container .list-items-div .list-item{
     margin : 0.45rem;
     padding : 0.6rem;
-    background-color: #c3c3c367;
+    background-color: #c3c3c3b7;
     display: flex;
     justify-content: space-between;
 }

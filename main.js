@@ -9,6 +9,7 @@ const All = document.getElementById('All')
 const Completed = document.getElementById('Completed')
 const Uncompleted = document.getElementById('Uncompleted')
 
+
 let oldValue = "", newValue = "", oldStyle = "";
 
 function filterOutTasks(e){
@@ -30,6 +31,7 @@ function filterOutTasks(e){
     }
     e.preventDefault();
 }
+
 
 
 function updatePendingTasks(){
@@ -75,7 +77,6 @@ function clearAll(){
 
 /*UPDATE UI from local storage data*/
 function updateEntireUI(){
-
     let tasks;
     localStorage.getItem('taskValue') ===  null ? tasks = [] 
     : tasks = JSON.parse(localStorage.getItem('taskValue'));
@@ -155,6 +156,7 @@ function removeSelectedItem(e){
         // set the new array to taskValue
         localStorage.setItem('taskValue',JSON.stringify(tasks));
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
+        
         e.target.parentElement.remove();
         updatePendingTasks();
     }
@@ -167,13 +169,21 @@ function removeSelectedItem(e){
         taskStatus = JSON.parse(localStorage.getItem('isChecked'));
         index = tasks.indexOf(listItemValue);
         taskStatus[index] = !taskStatus[index];
-        li.style.textDecoration === 'line-through' ?
-        li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
+        if(li.style.textDecoration === 'line-through'){
+            li.style.textDecoration = 'none';
+            li.parentElement.style.opacity = 1;
+        } else{
+            li.style.textDecoration = 'line-through';
+            li.parentElement.style.opacity = 0.5;
+        }
+        // li.style.textDecoration === 'line-through' ?
+        // li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
         updatePendingTasks();
     }
 
     else if(e.target.classList.contains('edit')){
+
         // creating new element 
         const newDiv = document.createElement('div');
         newDiv.className = 'input-div edit-input-div';
@@ -184,6 +194,7 @@ function removeSelectedItem(e){
         oldStyle = oldDiv.firstElementChild.style.textDecoration;
         oldValue = oldDiv.firstElementChild.textContent.trim();
         unorderedList.replaceChild(newDiv,oldDiv);
+
     }
 
     /*Adding task value after user clicks edit button*/
@@ -205,6 +216,11 @@ function removeSelectedItem(e){
             </div>`;
             parentElement.replaceChild(newItemDiv,oldElement);
             newItemDiv.firstElementChild.style.textDecoration = oldStyle;
+            if(newItemDiv.firstElementChild.style.textDecoration === 'line-through'){
+                newItemDiv.style.opacity = 0.5
+            } else{
+                newItemDiv.style.opacity = 1
+            }
             let tasks;
             tasks = JSON.parse(localStorage.getItem('taskValue'));
             index = tasks.indexOf(oldValue); // getting the index of old value
