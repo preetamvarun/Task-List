@@ -33,7 +33,6 @@ function filterOutTasks(e){
 }
 
 
-
 function updatePendingTasks(){
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
     let completedTasks = 0;
@@ -83,19 +82,15 @@ function updateEntireUI(){
     tasks.forEach(function(eachTask){
         showListItem(eachTask);
     });
-
     let taskStatus;
     localStorage.getItem('isChecked') === null ? taskStatus = [] :
     taskStatus = JSON.parse(localStorage.getItem('isChecked'));
-
     const listItemArray = Array.from(document.getElementsByClassName('list-item'));
-
     for(let i = 0; i < listItemArray.length; i++){
         taskStatus[i] ? 
         listItemArray[i].firstElementChild.style.textDecoration = 'line-through' : 
         listItemArray[i].firstElementChild.style.textDecoration = 'none';
     }
-
     All.selected = true;
     Completed.selected = false;
     Uncompleted.selected = false;
@@ -137,30 +132,25 @@ function addTask(e){
 
 /*Remove selected list item and update text-decoration for selected list item*/
 function removeSelectedItem(e){
-
     // if user clicks on the delete icon then clear list-item div
     if(e.target.classList.contains('hide')){
-
+        const todo = e.target.parentElement;
+        todo.classList.add('animation');
         let itemName = '',tasks = [], index = -1;
-
-        itemName = e.target.parentElement.firstElementChild.textContent.trim(); // remove last character space from the string
-
+        itemName = todo.firstElementChild.textContent.trim(); // remove last character space from the string
         tasks = JSON.parse(localStorage.getItem('taskValue'));
         taskStatus = JSON.parse(localStorage.getItem('isChecked'));
-
         index = tasks.indexOf(itemName);
-
         tasks.splice(index,1);
         taskStatus.splice(index,1);
-
         // set the new array to taskValue
         localStorage.setItem('taskValue',JSON.stringify(tasks));
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
-        
-        e.target.parentElement.remove();
-        updatePendingTasks();
+        todo.addEventListener('transitionend',function(){
+            todo.remove();
+            updatePendingTasks();
+        })
     }
-
     else if(e.target.id === 'check'){
         let index; 
         const listItemValue = e.target.parentElement.textContent.trim();
@@ -176,14 +166,11 @@ function removeSelectedItem(e){
             li.style.textDecoration = 'line-through';
             li.parentElement.style.opacity = 0.5;
         }
-        // li.style.textDecoration === 'line-through' ?
-        // li.style.textDecoration = 'none' : li.style.textDecoration = 'line-through';
         localStorage.setItem('isChecked',JSON.stringify(taskStatus));
         updatePendingTasks();
     }
 
     else if(e.target.classList.contains('edit')){
-
         // creating new element 
         const newDiv = document.createElement('div');
         newDiv.className = 'input-div edit-input-div';
@@ -194,9 +181,7 @@ function removeSelectedItem(e){
         oldStyle = oldDiv.firstElementChild.style.textDecoration;
         oldValue = oldDiv.firstElementChild.textContent.trim();
         unorderedList.replaceChild(newDiv,oldDiv);
-
     }
-
     /*Adding task value after user clicks edit button*/
     else if(e.target.tagName === 'A'){
         const textField = e.target.parentElement.firstElementChild;
@@ -229,18 +214,11 @@ function removeSelectedItem(e){
             localStorage.setItem('taskValue', JSON.stringify(tasks));
         }
     }
-
     e.preventDefault();
 }
-
-
 addTaskBtn.addEventListener('click',addTask);
 document.addEventListener('DOMContentLoaded',updateEntireUI);
 clearBtn.addEventListener('click',clearAll);
 unorderedList.addEventListener('click',removeSelectedItem);
 filters.addEventListener('click',filterOutTasks);
-
-
-
-
 /* WILL REVISIT THIS PROJECT FOR FURTHER IMPROVEMENTS OR IF I ENCOUNTER ANY BUGS */

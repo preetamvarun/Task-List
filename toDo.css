@@ -6,7 +6,7 @@
 
 body {
     background-color: rgb(231, 50, 50);
-    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -58,6 +58,12 @@ body {
     background-color: #c3c3c3b7;
     display: flex;
     justify-content: space-between;
+    transition: all 0.5s ease;
+}
+
+.animation{
+    transform: translateY(6rem) rotateZ(20deg);
+    opacity: 0;
 }
 
 .main-container .inside-main-container .list-items-div .list-item li{
@@ -115,6 +121,8 @@ body {
     padding : 0.3rem;
     background-color : rgb(238, 49, 80);
 }
+
+
 
 /*STYLE LAST SECTION PARAGRAPH*/
 .main-container .last-section-div p{display : inline-block;}
