@@ -42,6 +42,7 @@ body {
 .main-container .inside-main-container .input-div input,a,select {padding : 0.35rem;}
 
 /*STYLE LIST ITEMS DIV*/
+
 .main-container .inside-main-container .list-items-div ul {list-style: none;}
 .main-container .inside-main-container .list-items-div, 
 .main-container .inside-main-container .input-div, .main-container .last-section-div {padding : 0.5rem;}
@@ -121,8 +122,6 @@ body {
     padding : 0.3rem;
     background-color : rgb(238, 49, 80);
 }
-
-
 
 /*STYLE LAST SECTION PARAGRAPH*/
 .main-container .last-section-div p{display : inline-block;}
