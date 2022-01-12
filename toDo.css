@@ -6,7 +6,7 @@
 
 body {
     background-color: rgb(231, 50, 50);
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,11 +30,44 @@ body {
 .main-container .inside-main-container .input-div a{
     text-decoration : none;
     color : white;
-    background-color : rgb(238, 49, 80);
+    background-color : rgba(238, 49, 80, 0.733);
     text-align: center;
     width : 10%;
     border-radius: 10%;
+    position: relative;
+    z-index: 1;
 }
+
+.main-container .inside-main-container .input-div a::before,
+.main-container .inside-main-container .input-div a::after{
+    position: absolute;
+    content : '';
+    top : 0; 
+    right : 0;
+    left : 0;
+    bottom : 0;
+    background-color: rgb(238, 49, 80);
+    border-radius: 10%;
+    z-index: -1;
+    transform: scaleX(0);
+    transition : all 650ms ease-in-out;
+}
+
+.main-container .inside-main-container .input-div a::before{
+    transform-origin: left;
+}
+
+.main-container .inside-main-container .input-div a::after{
+    transform-origin: right;
+}
+
+.main-container .inside-main-container .input-div a:hover::before,
+.main-container .inside-main-container .input-div a:hover::after{
+    transform: scaleX(.6);
+}
+
+
+
 .main-container .inside-main-container .input-div{
     display: flex;
     justify-content: space-evenly;
@@ -120,7 +153,28 @@ body {
     text-decoration : none;
     color : white;
     padding : 0.3rem;
+    background-color : rgba(238, 49, 80, 0.753);
+    position: relative;
+    z-index: 1;
+}
+
+.main-container .last-section-div a::before{
+    content : '';
+    position: absolute;
+    top : 0; 
+    bottom : 0; 
+    right : 0; 
+    left : 0;
     background-color : rgb(238, 49, 80);
+    z-index : -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 650ms ease-in-out;
+}
+
+.main-container .last-section-div a:hover::before,
+.main-container .last-section-div a:focus::before{
+    transform : scaleX(1);
 }
 
 /*STYLE LAST SECTION PARAGRAPH*/
