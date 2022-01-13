@@ -61,5 +61,6 @@ Filter tasks 🔍 <br>
 delete tasks 🗑️ <br>
 check off tasks ✅ <br>
 local storage 🗃️ <br>
-User friendly 🔥
+User friendly 🔥 <br>
+cool animations ☘️
 
