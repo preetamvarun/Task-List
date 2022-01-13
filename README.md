@@ -17,14 +17,14 @@ The purpose of this project is to understand and implement the javascript concep
 
 <a name = "screenshots"> </a>
 ## 2. Screenshots 📸
-<img src = "images/a.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/b.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/c.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/d.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/e.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/f.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/g.png" alt = "taskListImage" height = 350 width = 750>
-<img src = "images/h.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/a-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/b-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/c-11.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/d-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/e-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/f-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/g-1.png" alt = "taskListImage" height = 350 width = 750>
+<img src = "images/i-1.png" alt = "taskListImage" height = 350 width = 750>
 
 <a name = "preview"> </a>
 ## 3. Preview 🎥
