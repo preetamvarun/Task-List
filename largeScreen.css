@@ -2,4 +2,7 @@
     .main-container{
         width: 55%;
     } 
+    #tasks{
+        display: none;
+    }
 }

@@ -2,5 +2,10 @@
     .main-container{
         width: 90%;
     } 
+    #tasks{
+        display: none;
+    }
+    .main-container .inside-main-container .input-div input {width : 65%;}
+    .main-container h2 {margin: 1.5rem;}
 }
 
