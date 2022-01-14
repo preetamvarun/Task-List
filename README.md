@@ -29,7 +29,8 @@ The purpose of this project is to understand and implement the javascript concep
 <a name = "preview"> </a>
 ## 3. Preview 🎥
 
-<img src = "images/to-do.gif" alt = "tasklistPreview" height = 350 width = 750>
+<img src = "images/t1.gif" alt = "tasklistPreview" height = 350 width = 650>
+<img src = "images/t2.gif" alt = "tasklistPreview" height = 350 width = 650>
 
 <a name = "Installation"> </a>
 ## 4. Installation 📀
