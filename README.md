@@ -10,6 +10,7 @@ A web app that is built with **HTML5,CSS3 & Vanilla JAVASCRIPT**
 - [Installation](#Installation)
 - [Technologies](#Tech)
 - [Features](#Features)
+- [liveDemo](#liveDemo)
 
 <a name = "GeneralInfo"> </a>
 ## 1. General Info 📝
@@ -64,4 +65,8 @@ check off tasks ✅ <br>
 local storage 🗃️ <br>
 User friendly 🔥 <br>
 cool animations ☘️
+
+<a name = "liveDemo"> </a>
+## live demo 👾
+https://tasks-record.netlify.app/
 
