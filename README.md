@@ -50,10 +50,9 @@ open index.html with a browser you prefer
 
 <a name = "Tech"> </a>
 ## 5.Technologies Used ✳️
-
-[![Javascript](https://img.shields.io/badge/Javascript-vanillaJs-orange)](https://devdocs.io/javascript/)   
-[![HTML](https://img.shields.io/badge/HTML-currentVersion5-green)](https://devdocs.io/html/)   
-[![CSS](https://img.shields.io/badge/CSS-currentVersion3-violet)](https://devdocs.io/css/)   
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/css3-blue.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 <a name = "Features"> </a>
 ## 6. Features
